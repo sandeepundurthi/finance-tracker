@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinanceFlow | Smart Money Tracker</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-chart-line me-2"></i>
+                <span class="brand-text">Finance<span class="brand-highlight">Flow</span></span>
+            </a>
+            <div class="navbar-text">
+                <i class="fas fa-user-circle me-2"></i>
+                <span id="current-date">Loading...</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container-fluid main-container">
+        <div class="row">
+            <!-- Left Sidebar - Summary Cards -->
+            <div class="col-lg-3 col-md-4 sidebar">
+                <!-- Total Balance Card -->
+                <div class="card balance-card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <h6 class="card-subtitle">Total Balance</h6>
+                                <h2 class="card-title mt-2" id="balance">$1,120.00</h2>
+                                <div class="trend-indicator positive mt-2">
+                                    <i class="fas fa-arrow-up me-1"></i>
+                                    <span>+12.5% from last month</span>
+                                </div>
+                            </div>
+                            <div class="icon-circle">
+                                <i class="fas fa-wallet"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Income Card -->
+                <div class="card stat-card income-card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="card-subtitle">Total Income</h6>
+                                <h4 class="card-title mt-1" id="total-income">$1,200.00</h4>
+                            </div>
+                            <div class="stat-icon">
+                                <i class="fas fa-money-bill-wave"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Expenses Card -->
+                <div class="card stat-card expense-card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="card-subtitle">Total Expenses</h6>
+                                <h4 class="card-title mt-1" id="total-expenses">$80.00</h4>
+                            </div>
+                            <div class="stat-icon">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="card quick-stats-card">
+                    <div class="card-body">
+                        <h6 class="card-title mb-3">Quick Stats</h6>
+                        <div class="stat-item">
+                            <div class="stat-label">
+                                <i class="fas fa-utensils me-2"></i>
+                                Food & Dining
+                            </div>
+                            <div class="stat-value">$50.00</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">
+                                <i class="fas fa-bus me-2"></i>
+                                Transportation
+                            </div>
+                            <div class="stat-value">$30.00</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">
+                                <i class="fas fa-film me-2"></i>
+                                Entertainment
+                            </div>
+                            <div class="stat-value">$0.00</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-9 col-md-8 main-content">
+                <!-- Add Transaction Card -->
+                <div class="card add-transaction-card">
+                    <div class="card-header">
+                        <h5 class="mb-0">
+                            <i class="fas fa-plus-circle me-2"></i>
+                            Add New Transaction
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-md-3">
+                                <label class="form-label">Amount</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">$</span>
+                                    <input type="number" class="form-control" id="amount" placeholder="0.00" step="0.01">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Description</label>
+                                <input type="text" class="form-control" id="description" placeholder="What was this for?">
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">Category</label>
+                                <select class="form-select" id="category">
+                                    <option value="Food">Food & Dining</option>
+                                    <option value="Transport">Transportation</option>
+                                    <option value="Shopping">Shopping</option>
+                                    <option value="Entertainment">Entertainment</option>
+                                    <option value="Bills">Bills & Utilities</option>
+                                    <option value="Healthcare">Healthcare</option>
+                                    <option value="Education">Education</option>
+                                    <option value="Salary">Salary</option>
+                                    <option value="Investment">Investment</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <label class="form-label">Type</label>
+                                <div class="btn-group w-100" role="group">
+                                    <input type="radio" class="btn-check" name="type" id="income-type" value="income" checked>
+                                    <label class="btn btn-outline-success" for="income-type">
+                                        <i class="fas fa-arrow-down me-1"></i> Income
+                                    </label>
+                                    <input type="radio" class="btn-check" name="type" id="expense-type" value="expense">
+                                    <label class="btn btn-outline-danger" for="expense-type">
+                                        <i class="fas fa-arrow-up me-1"></i> Expense
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary btn-lg" onclick="addTransaction()">
+                                    <i class="fas fa-plus me-2"></i>
+                                    Add Transaction
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Transactions Table Card -->
+                <div class="card transactions-card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">
+                            <i class="fas fa-history me-2"></i>
+                            Recent Transactions
+                        </h5>
+                        <div class="filter-buttons">
+                            <button class="btn btn-outline-secondary btn-sm">Today</button>
+                            <button class="btn btn-outline-secondary btn-sm">This Week</button>
+                            <button class="btn btn-outline-secondary btn-sm active">All</button>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Description</th>
+                                        <th>Category</th>
+                                        <th>Payment</th>
+                                        <th class="text-end">Amount</th>
+                                        <th class="text-center">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="transactions-list">
+                                    <!-- Transactions will load here -->
+                                    <tr>
+                                        <td colspan="6" class="text-center py-5">
+                                            <div class="spinner-border text-primary" role="status">
+                                                <span class="visually-hidden">Loading...</span>
+                                            </div>
+                                            <p class="mt-2">Loading transactions...</p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Section -->
+                <div class="row mt-4">
+                    <div class="col-lg-6">
+                        <div class="card chart-card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <i class="fas fa-chart-pie me-2"></i>
+                                    Spending by Category
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-container">
+                                    <canvas id="categoryChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card chart-card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <i class="fas fa-chart-line me-2"></i>
+                                    Monthly Overview
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-container">
+                                    <canvas id="monthlyChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container text-center">
+            <p class="mb-0">
+                <i class="fas fa-code me-1"></i>
+                Built with ❤️ using HTML, CSS, JavaScript, Node.js & SQLite
+            </p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Our App JS -->
+    <script src="js/app.js"></script>
+</body>
+</html>
