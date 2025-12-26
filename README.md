@@ -39,23 +39,27 @@ A full-stack web application for tracking personal income and expenses with real
 ```bash
 git clone https://github.com/sandeepundurthi/finance-tracker.git
 cd finance-tracker
+```
 
 ### Step 2: Install Dependencies
-'''bash
+```bash
 # Navigate to backend directory
 cd backend
-
+```
 # Install required packages
+```
 npm install
-
+```
 ### Step 3: Start the Application
 
 Option A: Development Mode (with auto-reload)
+```
 npm run dev
-
+```
 Option B: Production Mode
+```
 npm start
-
+```
 ### Step 4: Access the Application
 Open your web browser
 
