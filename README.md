@@ -66,6 +66,7 @@ Navigate to: http://localhost:3000
 The application will load with sample data
 
 📁 Project Structure
+```
 finance-tracker/
 ├── public/                    # Frontend files
 │   ├── index.html            # Main HTML file
@@ -79,7 +80,7 @@ finance-tracker/
 │   ├── package.json          # Dependencies
 │   └── finance.db            # SQLite database (auto-generated)
 └── README.md                 # This file
-
+```
 ## Screenshots
 
 <img width="1437" height="737" alt="Screenshot 2025-12-25 at 16 47 35" src="https://github.com/user-attachments/assets/3a38a156-5033-4798-a2e6-6473f99de29a" />
