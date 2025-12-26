@@ -1,6 +1,4 @@
-# 💰 Personal Finance Tracker
-
-![Finance Tracker Screenshot](screenshot.png)
+# Personal Finance Tracker
 
 A full-stack web application for tracking personal income and expenses with real-time balance calculation and spending analysis.
 
